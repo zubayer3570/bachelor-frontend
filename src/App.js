@@ -1,24 +1,16 @@
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Expenses from './components/Expenses';
-import Options from './components/Options';
-import MealCount from './components/MealCount';
-import MyAccount from './components/MyAccount';
-import ExpenseDetails from './components/ExpenseDetails';
-import AddExpense from './components/AddExpense';
+import { Route, Routes } from "react-router-dom";
+import AddDate from "./components/HomePage/Expense/AddDate";
+import Expense from "./components/HomePage/Expense/Expense";
+import HomePage from "./components/HomePage/HomePage";
 
 function App() {
   return (
     <>
-      <Navigation />
+      
       <Routes>
-        <Route path='/' element={<Options />} />
-        <Route path='/expenses' element={<Expenses />} />
-        <Route path='/expenses-deatils/:id' element={<ExpenseDetails />} />
-        <Route path='/meal-count' element={<MealCount />} />
-        <Route path='/my-account' element={<MyAccount />} />
-        <Route path='/add-expense' element={<AddExpense />} />
+        <Route element={<HomePage />} path='/' />
+        <Route element={<Expense/>} path='/expense' />
+        <Route element={<AddDate/>} path='/add-date' />
       </Routes>
     </>
   );
