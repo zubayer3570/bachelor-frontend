@@ -39,20 +39,23 @@ const AddPerson = () => {
             ["30", 0],
             ["31", 0]
         ]
-        fetch("http://localhost:5000/add-person", {
+        fetch("https://bachelor-backend.onrender.com/add-person", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify({ name: name, mealCount: days })
         })
-        .then(data=> navigate('/meal-count'))
+            .then(data => navigate('/meal-count'))
     }
     return (
-        <form onSubmit={addPerson}>
-            <input name='name' className='input input-bordered' type="text" />
-            <input type="submit" value="Add" className='btn' />
-        </form>
+        <div className='flex flex-col justify-center items-center h-[70vh]'>
+            <h1 className='font-bold text-center text-xl mb-4'>Add a Person to the Meal</h1>
+            <form onSubmit={addPerson}>
+                <input type="text" name='name' className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-3 bg-[whitesmoke]" />
+                <input type="submit" value="add" className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700' />
+            </form>
+        </div>
     );
 };
 

@@ -9,7 +9,7 @@ const MealCountCardUpdate = () => {
     const updateMealCount = (e) => {
         e.preventDefault()
         const mealCountUpdate = e.target.mealCount.value
-        fetch("http://localhost:5000/update-meal-count", {
+        fetch("https://bachelor-backend.onrender.com/update-meal-count", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -21,10 +21,13 @@ const MealCountCardUpdate = () => {
     }
     return (
         <>
-            <form onSubmit={updateMealCount}>
-                <input name='mealCount' type="text" className='input input-bordered' />
-                <input value='Update' type="submit" className='btn' />
-            </form>
+            <div className='flex flex-col justify-center items-center h-[70vh]'>
+                <h1 className='font-bold text-center text-xl mb-4'>Update meal</h1>
+                <form onSubmit={updateMealCount}>
+                    <input type="text" name='mealCount' className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-3 bg-[whitesmoke]" />
+                    <input type="submit" value="update" className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700' />
+                </form>
+            </div>
         </>
     );
 };
