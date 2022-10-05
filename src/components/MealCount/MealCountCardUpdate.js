@@ -13,7 +13,7 @@ const MealCountCardUpdate = () => {
         const lunch = parseInt(e.target.lunch.value)
         const dinner = parseInt(e.target.dinner.value)
         const meal = [breakfast, lunch, dinner]
-        fetch("http://localhost:5000/update-meal-count", {
+        fetch("https://bachelor-backend.onrender.com/update-meal-count", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

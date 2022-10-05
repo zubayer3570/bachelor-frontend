@@ -7,7 +7,7 @@ const AddAccount = () => {
     const addAccount = (e) => {
         e.preventDefault()
         const name = e.target.name.value
-        axios.post(`http://localhost:5000/add-account/${name}`, { name }).then(data => navigate(`/account-details/${name}`))
+        axios.post(`https://bachelor-backend.onrender.com/add-account/${name}`, { name }).then(data => navigate(`/account-details/${name}`))
     }
     return (
         <div className='flex flex-col justify-center items-center h-[70vh]'>
