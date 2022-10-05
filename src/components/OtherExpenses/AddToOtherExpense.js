@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AddExpense = () => {
+const AddToOtherExpense = () => {
     const navigate = useNavigate()
     const submit = (e) => {
         e.preventDefault()
         const date = e.target.date.value
         const description = e.target.description.value
         const amount = e.target.amount.value
-        const expense = { date, description, amount }
-        fetch("http://localhost:5000/add-expense", {
+        const otherExpense = { date, description, amount }
+        fetch("http://localhost:5000/add-to-other-expenses", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(expense)
+            body: JSON.stringify(otherExpense)
         })
-            .then(res => navigate("/expenses"))
+            .then(res => navigate("/other-expenses"))
     }
     return (
         <form onSubmit={submit} className='mx-4 mt-8 lg:mx-12 px-12 py-8 rounded-md bg-gray-50'>
@@ -29,4 +29,4 @@ const AddExpense = () => {
     );
 };
 
-export default AddExpense;
+export default AddToOtherExpense;

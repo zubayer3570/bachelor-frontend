@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import React from 'react';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import PersonCard from './PersonCard'
 
 
 const MealCountMain = () => {
-    const [persons, setPersons] = useState([])
-    useEffect(() => {
-        fetch("https://bachelor-backend.onrender.com/get-person")
-            .then(res => res.json())
-            .then(data => setPersons(data))
-    }, [])
+    const { isLoading, data } = useQuery('fetch-persons', () => {
+        return axios.get("http://localhost:5000/get-person")
+    })
     return (
         <>
-        <div className='flex justify-center mt-8 mb-[-0.5rem] text-3xl font-bold'>Meal Count</div>
+            <div className='flex justify-center mt-8 mb-[-0.5rem] text-3xl font-bold'>Meal Count</div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 p-8'>
                 {
-                    persons.map(singlePerson => <Link to={`/meal-count-details/${singlePerson.name}`}> <PersonCard data={singlePerson} /> </Link>)
+                    data?.data.map(singlePerson => <PersonCard data={singlePerson} key={singlePerson._id} /> )
                 }
             </div>
 
