@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const HomeMain = () => {
     const { isLoading, data } = useQuery('fetch-data', () => {
-        return axios.get("https://bachelor-backend.onrender.com/get-ave-meal-rate")
+        return axios.get("https://bachelor-public-backend.onrender.com/get-ave-meal-rate")
     })
     return (
         <>

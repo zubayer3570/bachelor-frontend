@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const OtherExpensesMain = () => {
     const {isLoading, data} = useQuery("fetch-other-expense", ()=>{
-        return axios.get('https://bachelor-backend.onrender.com/get-other-expenses')
+        return axios.get('https://bachelor-public-backend.onrender.com/get-other-expenses')
     })
     return (
         <div>

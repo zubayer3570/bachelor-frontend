@@ -6,11 +6,11 @@ import { Link, useParams } from 'react-router-dom';
 const AccountDetails = () => {
     const { name } = useParams()
     const { isLoading, data } = useQuery(`get-account-details-${name}`, async () => {
-        const aveMealRate = await axios.get(`https://bachelor-backend.onrender.com/get-ave-meal-rate`)
-        const personMeal = await axios.get(`https://bachelor-backend.onrender.com/get-person-meal/${name}`)
-        const addedToMeal = await axios.get(`https://bachelor-backend.onrender.com/added-to-meal/${name}`)
-        const aveOtherExpenses = await axios.get("https://bachelor-backend.onrender.com/get-ave-other-expenses")
-        const addedToOther = await axios.get(`https://bachelor-backend.onrender.com/added-to-other/${name}`)
+        const aveMealRate = await axios.get(`https://bachelor-public-backend.onrender.com/get-ave-meal-rate`)
+        const personMeal = await axios.get(`https://bachelor-public-backend.onrender.com/get-person-meal/${name}`)
+        const addedToMeal = await axios.get(`https://bachelor-public-backend.onrender.com/added-to-meal/${name}`)
+        const aveOtherExpenses = await axios.get("https://bachelor-public-backend.onrender.com/get-ave-other-expenses")
+        const addedToOther = await axios.get(`https://bachelor-public-backend.onrender.com/added-to-other/${name}`)
         return {
             aveMealRate: aveMealRate.data.ave,
             totalPersonMeal: personMeal.data.totalPersonMeal,

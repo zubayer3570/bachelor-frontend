@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import AccountCard from './AccountCard';
 
 const AccountsMain = () => {
-    const { isLoading, data } = useQuery("fetch-account-names", () => axios.get('https://bachelor-backend.onrender.com/get-account-names'))
+    const { isLoading, data } = useQuery("fetch-account-names", () => axios.get('https://bachelor-public-backend.onrender.com/get-account-names'))
     return (
         <>
             <h1 className='text-3xl font-bold pt-4 text-center'>Accounts</h1>

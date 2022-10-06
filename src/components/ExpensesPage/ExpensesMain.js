@@ -5,7 +5,7 @@ import ExpenseCard from './ExpenseCard';
 const ExpensesMain = () => {
     const [expenses, setExpenses] = useState()
     useEffect(() => {
-        fetch("https://bachelor-backend.onrender.com/get-expenses-details")
+        fetch("https://bachelor-public-backend.onrender.com/get-expenses-details")
             .then(res => res.json())
             .then(data => setExpenses(data))
     }, [])
