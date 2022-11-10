@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+import Loading from '../Loading';
 
 const AccountDetails = () => {
     const { name } = useParams()
@@ -19,6 +20,9 @@ const AccountDetails = () => {
             addedToOther: addedToOther.data.addedToOther
         }
     })
+    if (isLoading) {
+        return <Loading />
+    }
     const mealExpense = data?.totalPersonMeal * data?.aveMealRate
     const dueOfMeal = mealExpense - data?.addedToMeal
 
@@ -32,7 +36,7 @@ const AccountDetails = () => {
                 <p className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Account Details of <span className='text-green-500'>{name}</span></p>
                 <p>Meal Expense: {mealExpense}tk</p>
                 <p>Added to Meal: {data?.addedToMeal}tk</p>
-                <p>Due of Meal: <span className={dueOfMeal ? 'text-red-500' : 'text-green-500'}>{dueOfMeal > 0 ? dueOfMeal : 0}tk</span></p>
+                <p>Due of Meal: <span className={dueOfMeal ? 'text-green-500' : 'text-red-500'}>{dueOfMeal > 0 ? dueOfMeal : 0}tk</span></p>
                 <div className='h-4'></div>
                 <p>Other Expense: {data?.aveOtherExpenses}tk </p>
                 <p>Added to Other: {data?.addedToOther}tk </p>

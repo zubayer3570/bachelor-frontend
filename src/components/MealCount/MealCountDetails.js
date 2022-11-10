@@ -9,7 +9,7 @@ const MealCountDetails = () => {
         fetch(`https://bachelor-backend.onrender.com/get-person-data/${person}`)
             .then(res => res.json())
             .then(data => setData(data))
-    }, [])
+    }, [person])
     return (
         <div>
             <h1 className='font-bold text-center text-2xl my-6'>Meal Count of <span className='text-green-500'>{person}</span></h1>

@@ -7,7 +7,7 @@ import PersonCard from './PersonCard'
 
 
 const MealCountMain = () => {
-    const { isLoading, data } = useQuery('fetch-persons', () => {
+    let { isLoading, data } = useQuery('fetch-persons', () => {
         return axios.get("https://bachelor-backend.onrender.com/get-person")
     })
     if (isLoading) {
