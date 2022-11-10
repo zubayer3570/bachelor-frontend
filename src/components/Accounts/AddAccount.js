@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 const AddAccount = () => {
@@ -7,7 +8,7 @@ const AddAccount = () => {
     const addAccount = (e) => {
         e.preventDefault()
         const name = e.target.name.value
-        axios.post(`https://bachelor-public-backend.onrender.com/add-account/${name}`, { name }).then(data => navigate(`/account-details/${name}`))
+        axios.post(`http://localhost:5000/add-account/${name}`, { name }).then(data => navigate(`/account-details/${name}`))
     }
     return (
         <div className='flex flex-col justify-center items-center h-[70vh]'>

@@ -3,11 +3,15 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import MealRate from './MealRate';
 import axios from 'axios';
+import Loading from '../Loading';
 
 const HomeMain = () => {
     const { isLoading, data } = useQuery('fetch-data', () => {
-        return axios.get("https://bachelor-public-backend.onrender.com/get-ave-meal-rate")
+        return axios.get("http://localhost:5000/get-ave-meal-rate")
     })
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <>
             <div className='flex flex-col items-center justify-center h-[100vh] mt-[-7rem]'>
@@ -35,6 +39,7 @@ const HomeMain = () => {
                     </Link>
                 </div>
             </div>
+
         </>
     );
 };

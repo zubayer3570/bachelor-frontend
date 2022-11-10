@@ -1,13 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import OtherExpensesCard from './OtherExpensesCard';
-import {useQuery} from 'react-query'
+import { useQuery } from 'react-query'
 import axios from 'axios'
+import Loading from '../Loading';
 
 const OtherExpensesMain = () => {
-    const {isLoading, data} = useQuery("fetch-other-expense", ()=>{
-        return axios.get('https://bachelor-public-backend.onrender.com/get-other-expenses')
+    const { isLoading, data } = useQuery("fetch-other-expense", () => {
+        return axios.get('http://localhost:5000/get-other-expenses')
     })
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <div>
             <p className='font-bold text-2xl text-center pt-8 pb-4'>Other Expense List</p>

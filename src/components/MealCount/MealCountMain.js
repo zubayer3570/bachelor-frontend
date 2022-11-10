@@ -2,19 +2,23 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import Loading from '../Loading';
 import PersonCard from './PersonCard'
 
 
 const MealCountMain = () => {
     const { isLoading, data } = useQuery('fetch-persons', () => {
-        return axios.get("https://bachelor-public-backend.onrender.com/get-person")
+        return axios.get("http://localhost:5000/get-person")
     })
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <>
             <div className='flex justify-center mt-8 mb-[-0.5rem] text-3xl font-bold'>Meal Count</div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 p-8'>
                 {
-                    data?.data.map(singlePerson => <PersonCard data={singlePerson} key={singlePerson._id} /> )
+                    data?.data.map(singlePerson => <PersonCard data={singlePerson} key={singlePerson._id} />)
                 }
             </div>
 

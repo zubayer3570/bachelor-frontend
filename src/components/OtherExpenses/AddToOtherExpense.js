@@ -9,7 +9,7 @@ const AddToOtherExpense = () => {
         const description = e.target.description.value
         const amount = e.target.amount.value
         const otherExpense = { date, description, amount }
-        fetch("https://bachelor-public-backend.onrender.com/add-to-other-expenses", {
+        fetch("http://localhost:5000/add-to-other-expenses", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

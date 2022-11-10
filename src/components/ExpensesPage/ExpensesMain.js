@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import React from 'react';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import Loading from '../Loading';
 import ExpenseCard from './ExpenseCard';
 
 const ExpensesMain = () => {
-    const [expenses, setExpenses] = useState()
-    useEffect(() => {
-        fetch("https://bachelor-public-backend.onrender.com/get-expenses-details")
-            .then(res => res.json())
-            .then(data => setExpenses(data))
-    }, [])
+    const { isLoading, data } = useQuery('get-meal-expense', async () => {
+        const data = await axios.get('http://localhost:5000/get-expenses-details')
+        return data?.data
+    })
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <div>
             <p className='font-bold text-2xl text-center pt-8 pb-4'>Expense List</p>
+            <p className='font-bold text-xl text-center p-8'>Remaining In Meal: <span className={data?.mealBalance < 0 ? `text-[red]` : `text-[green]`} >{data?.mealBalance} Tk</span></p>
             {
-                expenses?.map(expense => <ExpenseCard expense={expense} key={expense._id} />)
+                data?.expenseDetails.map(expense => <ExpenseCard expense={expense} key={expense._id} />)
             }
             <div className='flex justify-center mt-8'>
                 <Link to='/add-expense'>
@@ -31,4 +36,4 @@ const ExpensesMain = () => {
     );
 };
 
-export default ExpensesMain; <p>this is a the expense</p>
+export default ExpensesMain;

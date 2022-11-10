@@ -8,7 +8,7 @@ const AddToMeal = () => {
     const submit = async (e) => {
         e.preventDefault()
         const amount = e.target.amount.value
-        await axios.post(`https://bachelor-public-backend.onrender.com/add-to-meal/${name}`, { amount }).then(res => navigate(`/account-details/${name}`))
+        await axios.post(`http://localhost:5000/add-to-meal/${name}`, { amount }).then(res => navigate(`/account-details/${name}`))
     }
     return (
         <form onSubmit={submit} className='flex flex-col items-center mx-4 mt-8 lg:mx-12 px-12 py-8 rounded-md bg-gray-50'>
