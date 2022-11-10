@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const PersonCard = (props) => {
     const { isLoading: isLoadingAveMealRate, data: aveMealRate } = useQuery(`fetch-ave-meal-rate`, () => {
-        return axios.get(`http://localhost:5000/get-ave-meal-rate`)
+        return axios.get(`https://bachelor-backend.onrender.com/get-ave-meal-rate`)
     })
     const { isLoading: isLoadingPersonMeal, data: totalPersonMealData } = useQuery(`fetch-total-meal-${props.data.name}`, () => {
-        return axios.get(`http://localhost:5000/get-person-meal/${props.data.name}`)
+        return axios.get(`https://bachelor-backend.onrender.com/get-person-meal/${props.data.name}`)
     })
     const totalPersonMeal = totalPersonMealData?.data.totalPersonMeal
     const mealExpense = aveMealRate?.data.ave * totalPersonMeal
