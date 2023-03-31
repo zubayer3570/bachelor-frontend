@@ -3,10 +3,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import NavigationBar from './components/NavigationBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+    <NavigationBar />
     <App />
   </BrowserRouter>
 );
