@@ -6,7 +6,7 @@ const MealCountDetails = () => {
     const { person } = useParams()
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/get-person-data/${person}`)
+        fetch(`https://bachelor-backend.onrender.com/get-person-data/${person}`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [person])

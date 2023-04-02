@@ -6,7 +6,7 @@ import Loading from '../Loading';
 import AccountCard from './AccountCard';
 
 const AccountsMain = () => {
-    const { isLoading, data } = useQuery("fetch-account-names", () => axios.get('http://localhost:5000/get-account-names'))
+    const { isLoading, data } = useQuery("fetch-account-names", () => axios.get('https://bachelor-backend.onrender.com/get-account-names'))
     if (isLoading) {
         return <Loading />
     }
@@ -24,11 +24,13 @@ const AccountsMain = () => {
                         Add Accoun +
                     </button>
                 </Link>
-                {/* <Link to='/'>
-                    <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                        Go Back To Home
-                    </button>
-                </Link> */}
+                <div className='lg:hidden'>
+                    <Link to='/'>
+                        <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                            Go Back To Home
+                        </button>
+                    </Link>
+                </div>
             </div>
         </>
     );
