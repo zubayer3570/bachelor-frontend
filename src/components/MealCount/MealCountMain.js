@@ -8,7 +8,7 @@ import PersonCard from './PersonCard'
 
 const MealCountMain = () => {
     let { isLoading, data } = useQuery('fetch-persons', () => {
-        return axios.get("https://bachelor-backend.onrender.com/get-person")
+        return axios.get("http://localhost:5000/get-person")
     })
     if (isLoading) {
         return <Loading />
@@ -23,11 +23,11 @@ const MealCountMain = () => {
             </div>
 
             <div className='flex justify-center'>
-                <Link to='/add-person'>
+                {/* <Link to='/add-person'>
                     <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                         Add Person +
                     </button>
-                </Link>
+                </Link> */}
                 <Link to='/'>
                     <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                         Go Back To Home

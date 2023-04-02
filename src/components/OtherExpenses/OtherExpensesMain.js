@@ -7,7 +7,7 @@ import Loading from '../Loading';
 
 const OtherExpensesMain = () => {
     const { isLoading, data } = useQuery("fetch-other-expense", () => {
-        return axios.get('https://bachelor-backend.onrender.com/get-other-expenses')
+        return axios.get('http://localhost:5000/get-other-expenses')
     })
     if (isLoading) {
         return <Loading />

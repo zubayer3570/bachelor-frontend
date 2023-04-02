@@ -12,11 +12,11 @@ const MealCountCardUpdate = () => {
     const updateMealCount = (e) => {
         e.preventDefault()
         setIsloading(true);
-        const breakfast = parseInt(e.target.breakfast.value)
-        const lunch = parseInt(e.target.lunch.value)
-        const dinner = parseInt(e.target.dinner.value)
+        const breakfast = parseInt(e.target.breakfast.value) || 0
+        const lunch = parseInt(e.target.lunch.value) || 0
+        const dinner = parseInt(e.target.dinner.value) || 0
         const meal = [breakfast, lunch, dinner]
-        axios.post("https://bachelor-backend.onrender.com/update-meal-count", { name, index, mealCountUpdate: meal }).then(res => navigate(`/meal-count-details/${name}`))
+        axios.post("http://localhost:5000/update-meal-count", { name, index, mealCountUpdate: meal }).then(res => navigate(`/meal-count-details/${name}`))
     }
     return (
         <>

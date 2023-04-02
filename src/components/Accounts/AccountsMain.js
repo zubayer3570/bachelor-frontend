@@ -6,7 +6,7 @@ import Loading from '../Loading';
 import AccountCard from './AccountCard';
 
 const AccountsMain = () => {
-    const { isLoading, data } = useQuery("fetch-account-names", () => axios.get('https://bachelor-backend.onrender.com/get-account-names'))
+    const { isLoading, data } = useQuery("fetch-account-names", () => axios.get('http://localhost:5000/get-account-names'))
     if (isLoading) {
         return <Loading />
     }
