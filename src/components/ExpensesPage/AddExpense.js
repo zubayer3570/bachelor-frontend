@@ -9,7 +9,7 @@ const AddExpense = () => {
         const description = e.target.description.value
         const amount = e.target.amount.value
         const expense = { date, description, amount }
-        fetch("http://localhost:5000/add-expense", {
+        fetch("https://bachelor-backend.onrender.com/add-expense", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

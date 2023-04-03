@@ -7,7 +7,7 @@ import ExpenseCard from './ExpenseCard';
 
 const ExpensesMain = () => {
     const { isLoading, data } = useQuery('get-meal-expense', async () => {
-        const data = await axios.get('http://localhost:5000/get-expenses-details')
+        const data = await axios.get('https://bachelor-backend.onrender.com/get-expenses-details')
         return data?.data
     })
     if (isLoading) {

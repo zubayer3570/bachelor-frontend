@@ -7,7 +7,7 @@ import Loading from '../Loading';
 
 const HomeMain = () => {
     const { isLoading, data } = useQuery('fetch-data', () => {
-        return axios.get("http://localhost:5000/get-ave-meal-rate")
+        return axios.get("https://bachelor-backend.onrender.com/get-ave-meal-rate")
     })
     // if (isLoading) {
     //     return <Loading />

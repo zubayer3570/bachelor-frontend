@@ -8,12 +8,12 @@ import PaymentCard from './PaymentCard';
 const AccountDetails = () => {
     const { name } = useParams()
     const { isLoading, data } = useQuery(`get-account-details-${name}`, async () => {
-        const aveMealRate = await axios.get(`http://localhost:5000/get-ave-meal-rate`)
-        const personMeal = await axios.get(`http://localhost:5000/get-person-meal/${name}`)
-        const addedToMeal = await axios.get(`http://localhost:5000/added-to-meal/${name}`)
-        const aveOtherExpenses = await axios.get("http://localhost:5000/get-ave-other-expenses")
-        const addedToOther = await axios.get(`http://localhost:5000/added-to-other/${name}`)
-        const paymentDetails = await axios.get(`http://localhost:5000/get-meal-payment-details/${name}`)
+        const aveMealRate = await axios.get(`https://bachelor-backend.onrender.com/get-ave-meal-rate`)
+        const personMeal = await axios.get(`https://bachelor-backend.onrender.com/get-person-meal/${name}`)
+        const addedToMeal = await axios.get(`https://bachelor-backend.onrender.com/added-to-meal/${name}`)
+        const aveOtherExpenses = await axios.get("https://bachelor-backend.onrender.com/get-ave-other-expenses")
+        const addedToOther = await axios.get(`https://bachelor-backend.onrender.com/added-to-other/${name}`)
+        const paymentDetails = await axios.get(`https://bachelor-backend.onrender.com/get-meal-payment-details/${name}`)
         return {
             aveMealRate: aveMealRate.data.ave,
             totalPersonMeal: personMeal.data.totalPersonMeal,
