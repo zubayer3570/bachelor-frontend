@@ -7,7 +7,7 @@ import ExpenseCard from './ExpenseCard';
 
 const ExpensesMain = () => {
     const { isLoading, data } = useQuery('get-meal-expense', async () => {
-        const data = await axios.get('https://bachelor-backend.onrender.com/get-expenses-details')
+        const data = await axios.get('http://localhost:5000/get-expenses-details')
         return data?.data
     })
     if (isLoading) {
@@ -16,8 +16,8 @@ const ExpensesMain = () => {
     return (
         <div>
             <p className='font-bold text-2xl text-center pt-8 pb-4'>Expense List</p>
-            <p className='font-bold text-xl text-center p-8'>Remaining In Meal: <span className={data?.mealBalance < 0 ? `text-[red]` : `text-[green]`} >{data?.mealBalance} Tk</span></p>
-            {console.log(data?.mealBalance)}
+            <p className='font-bold text-xl text-center mb-2'>Total expenses: <span className='text-green-500'>{data?.totalMealExpense}tk</span></p>
+            <p className='font-bold text-xl text-center mx-8 mb-8'>Remaining In Meal: <span className={data?.mealBalance < 0 ? `text-red-500` : `text-green-500`} >{data?.mealBalance} Tk</span></p>
             {
                 data?.expenseDetails.map(expense => <ExpenseCard expense={expense} key={expense._id} />)
             }

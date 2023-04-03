@@ -39,7 +39,7 @@ const AddPerson = () => {
             ["30", 0, [0, 0, 0]],
             ["31", 0, [0, 0, 0]]
         ]
-        fetch("https://bachelor-backend.onrender.com/add-person", {
+        fetch("http://localhost:5000/add-person", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
