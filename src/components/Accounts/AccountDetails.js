@@ -13,13 +13,13 @@ const AccountDetails = () => {
         const addedToMeal = await axios.get(`https://bachelor-backend.onrender.com/added-to-meal/${name}`)
         const aveOtherExpenses = await axios.get("https://bachelor-backend.onrender.com/get-ave-other-expenses")
         const addedToOther = await axios.get(`https://bachelor-backend.onrender.com/added-to-other/${name}`)
-        const paymentDetails = await axios.get(`https://bachelor-backend.onrender.com/get-meal-payment-details/${name}`)
+        const paymentDetails = await axios.get(`https://bachelor-backend.onrender.com/get-payment-details/${name}`)
         return {
             aveMealRate: aveMealRate.data.ave,
             totalPersonMeal: personMeal.data.totalPersonMeal,
             addedToMeal: addedToMeal.data.addedToMeal,
             aveOtherExpenses: aveOtherExpenses.data.aveOtherExpenses,
-            addedToOther: addedToOther.data.addedToOther,
+            addedToOther: addedToOther.data.totalAddedToOther,
             paymentDetails: paymentDetails.data.data,
         }
     })
@@ -77,6 +77,12 @@ const AccountDetails = () => {
                 <h1 className='text-center font-bold text-[23px] mt-8 mb-4'>Meal Payment Details</h1>
                 {
                     data.paymentDetails.addedToMeal.map((payment, index) => <PaymentCard date={payment.date} amount={payment.amount} key={index} />)
+                }
+            </div>
+            <div>
+                <h1 className='text-center font-bold text-[23px] mt-8 mb-4'>Others Payment Details</h1>
+                {
+                    data.paymentDetails.addedToOther.map((payment, index) => <PaymentCard date={payment.date} amount={payment.amount} key={index} />)
                 }
             </div>
             <div className='lg:hidden flex justify-center my-8'>
